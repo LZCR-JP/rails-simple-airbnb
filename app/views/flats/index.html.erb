@@ -1,0 +1,18 @@
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-sm-6 col-lg-4 mb-4">
+      <%= link_to flat_path(flat), class: "text-decoration-none" do %>
+        <div class="card flat-card h-100">
+          <% if flat.picture_name.present? %>
+            <%= image_tag flat.picture_name, alt: flat.name, class: "flat-img" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title text-dark mb-1"><%= flat.name %></h5>
+            <p class="text-muted small mb-2">📍 <%= flat.address %></p>
+            <p class="mb-0 text-dark"><strong>$<%= flat.price_per_night %></strong> / night</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
